@@ -79,21 +79,18 @@
     <body class="um-vp" ontouchstart>
             <div  class="ub-f1 tx-l t-bla ub-img6 res10  up ub ub-ver uof-x"   >
                 <div id="slider" class="ub-con ub" >
-                	<div class="ub-fh" id="professionalPresentation">
+                	<div class="ub-fh" id="groupNews">
 						<!--<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="professionalPresentationImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>-->
-						<div id="professionalPresentationContent" class="content"></div>
+						<div id="groupNewsContent" class="content"></div>
 					</div>
 					<div class="ub-fh" id="groupNews" >
-						<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="groupNewsImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>	
-						<div id="groupNewsContent" class="content"></div>
+						<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="professionalPresentationImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>	
+						<div id="professionalPresentationContent" class="content"></div>
 					</div>
 					<div class="ub-fh" id="campusEnvironment" >
 						<!--<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="campusEnvironmentImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>-->
 						<div id="campusEnvironmentContent" class="content">
-								<div><img width="100%" height="100%" id="mediaFocusImg" style=" background-size:cover; background-repeat:no-repeat; " ></div>
-								<div></div>
-
-								<div style="text-align:center; font-family:font-family:'Microsoft Sans Serif'; color:grey"><br>添加<br>更多图片</div>
+								
 						</div>
 					</div>
                 </div>
@@ -121,10 +118,12 @@
 				zy_initcache(function(){
 					window.localStorage["PSize"]=9;
 						//getForumList(11);
-						getForumList(12);
+						//getForumList(12);
 						//getForumList(13);
+						getForumListZ();
 						  getForumList1();
 						  getForumListJ1();
+						  
 					//zy_imgcache("professionalPresentationImg","CollegeIntroducedP1","http://www.neusoft.gd.cn/UploadFiles/xs/2011/11/201111071701544116.jpg",null,null,"CollegeIntroducedP1.jpg","jpg");
 					});
 				$$("slider").slide=new zySlide("slider","H",function(){
@@ -246,6 +245,33 @@ function showList(items){
 		iii = iii+1;
 	}
 }
+
+function  getForumListZ(){
+	xmlHttp(window.localStorage["url"]+"wap_Article_listcid.action?categoryid=12&pageOffset=0&pageSize=1",showListZ);
+	
+}
+var iii = 0 ; 
+function showListZ(items){
+			for(var i in items){
+			var item = items[i];
+		//var numImg = new Array("mediaFocusImg","researchTeamImg","vacanciesImg");
+ 		//var numContent=new Array("mediaFocusContent","researchTeamContent","vacanciesContent");
+			if(window.localStorage["professionalPresentationContent"]==""||window.localStorage["professionalPresentationContent"]==null){
+				window.localStorage["professionalPresentationContent"]=item.content;
+				document.getElementById("professionalPresentationContent").innerHTML=item.content;
+			}
+			else{
+				document.getElementById("professionalPresentationContent").innerHTML=window.localStorage["professionalPresentationContent"];
+			}
+			zy_imgcache("professionalPresentationImg","professionalPresentationImg",window.localStorage["url"]+item.tpicture,null,null,"professionalPresentationImg.jpg","jpg");	
+			
+	}
+}
+	
+
+
+
+
 	function refresh()
 {
 	$.clearLS(window.localStorage["url"]+"wap_Article_listcid.action?categoryid="+i+"&pageOffset=0&pageSize=1");
@@ -300,7 +326,7 @@ xmlHttp(window.localStorage["url"]+"wap_Picture_list.action?pageOffset=0&pageSiz
 }	
 
 function  getForumListJ1(){
-	document.getElementById("campusEnvironmentContent").innerHTML="";
+	document.getElementById("groupNewsContent").innerHTML="";
 	xmlHttp(window.localStorage["url"]+"wap_Article_listcid.action?categoryid=11&pageOffset=0&pageSize=10",showListJ1);
 }
 
@@ -310,19 +336,19 @@ function showListJ1(items){
 		var trHeader = item.id+item.title;
 		var pid = item.id;
 		var purl = item.tpicture;
-		if (window.localStorage["CECj"+pid] == null) {
-			document.getElementById("professionalPresentationContent").innerHTML+="<div class='contentDiv'  onclick='openwin(this.id)' id="+item.id+" >"+
+		//if (window.localStorage["CECj"+pid] == null) {
+			document.getElementById("groupNewsContent").innerHTML+="<div class='contentDiv'  onclick='openwin(this.id)' id="+item.id+" >"+
 														"<h5>"+item.title+"</h5>"+
 														"<div class='content'>"+ item.intro.substr(1,70)+"</div>"+
 													"<div id='times'>"+item.createDate+"</div> "
 													+"<div>"
-		}
-		else {
+		//}
+	//	else {
 		
 		
-			}
-			zy_imgcache( "professionalPresentationImg","professionalPresentationImg" , window.localStorage["url"] + item.tpicture, null, null, "CprofessionalPresentationImg.jpg", "jpg");
-		}
+		//}
+	//	zy_imgcache( "professionalPresentationImg","professionalPresentationImg" , window.localStorage["url"] + item.tpicture, null, null, "CprofessionalPresentationImg.jpg", "jpg");
+	}
 	
 }			
 function openwin(GNId){

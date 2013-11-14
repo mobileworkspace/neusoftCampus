@@ -38,7 +38,7 @@
         self._vendor=(window.navigator.userAgent.indexOf("Android 4.")>=0);
 		
 		if(self.dir=="H")
-		{		//alert("21");
+		{		
 				self.element.style.webkitTransform = getTranslateX(0);
 		}
 		
@@ -107,7 +107,6 @@
 			var self = this;
 
 			var conf = self.conf;
-
 			// setting max point
 			self.maxPoint = conf.point || (function() {
 				var childNodes = self.element.childNodes,
@@ -176,7 +175,19 @@
                 parseInt(point);
 			
             self.element.style.webkitTransitionDuration = '500ms';
-           	self._setXY(- self.currentPoint * self.distance);
+           //	self._setXY(- self.currentPoint * self.distance);
+			//alert(- self.currentPoint * self.distance);
+			//self._setXY(-320);
+			if(window.localStorage["sliderType"]=="slider")
+			{
+				self._setXY(- self.currentPoint * self.distance);
+			}
+			else 
+			{
+				self._setXY(parseInt(window.localStorage["xy"]));
+			}
+			//alert(window.localStorage["xy"]);
+			//self._setXY(parseInt(window.localStorage["xy"]));
             
 
             var ev = document.createEvent('Event');
@@ -297,8 +308,8 @@
 
             if(self._locked)
             {
-           		event.preventDefault();
-	            event.stopPropagation();
+           		event.preventDefault();//防止默认
+	            event.stopPropagation();//停止传播
             }
             
             if (!self.scrolling) {
@@ -306,7 +317,7 @@
                 return;
             }
 
-            self.scrolling = false;
+            self.scrolling = false;//滚动为否
 
             var newPoint = -self.currentXY / self.distance;
             newPoint =
