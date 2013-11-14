@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="css/ui-btn.css">
+        <link rel="stylesheet" href="css/ui-tab.css">
+        <link rel="stylesheet" href="css/ui-input.css">
+        <link rel="stylesheet" href="css/ui-base.css">
+        <link rel="stylesheet" href="css/ui-box.css">
+        <link rel="stylesheet" href="css/ui-color.css">
+		<link rel="stylesheet" href="css/ui-res.css">
+		<link rel="stylesheet" href="css/myCss/index.css">
+        <script src="js/zy_control.js">
+        </script>
+        <script src="js/zy_click.js">
+        </script>
+        <script>
+        </script>
+		<script src="js/myJs/GeneralNews.js"></script>
+		<script src="js/zy_slide.js"></script>
+		<script src="js/zy_icache.js"></script>
+		<script src="js/zy_json.js"></script>
+		<script src="js/myJs/jq.js"></script>
+    </head>
+    <body class="um-vp c-wh" ontouchstart>
+        <div id="page_0" class="up ub ub-ver" tabindex="0" >
+            <!--header开始-->
+            <div id="header" class="uh c-org c-m1 t-wh ub" >
+            	<div class="umw4" ontouchstart="zy_touch()" onclick="refresh()">
+                <!--插入按钮控件-->
+				<!--按钮开始-->
+ <div class="btn btn-r btn-n ub ub-ac">       
+                <div class="ulim">刷新</div>             
+      </div>
+<!--按钮结束-->
+            	</div>
+                <h1 class="ut ub-f1 ulev0 ut-s tx-c" tabindex="0">南海东软学院</h1>
+				<div class="umw4" ontouchstart="zy_touch()" onclick="">
+                <!--插入按钮控件-->
+            	</div>
+            </div>
+            <!--header结束-->
+			
+		<div  id="GeneralNews" style="  width:100%;display:none;" class="uof"  >	
+              	 <div id="slider" class="ub" >
+					<div class="ub-fh">
+						<div  style="width:100%; height:35%" ><img width="100%" height="100%" id="indexP1" style=" background-size:cover; background-repeat:no-repeat; " onclick="openwin(this.id)"></div>
+						<div class="ub-fh uabs t-wh uch PTitile"  style="padding:0em 1em 0em"></div>
+					</div><!--ub-pe位于末端-->
+					<div class="ub-fh">
+						<div  style="width:100%; height:35%" ><img width="100%" height="100%" id="indexP2" style=" background-size:cover; background-repeat:no-repeat;"  onclick="openwin(this.id)"></div>
+						<div class="ub-fh uabs t-wh uch PTitile"  style="padding:0em 1em 0em"></div>
+					</div>
+					<div class="ub-fh">
+						<div  style="width:100%; height:35%" ><img width="100%" height="100%" id="indexP3" style=" background-size:cover; background-repeat:no-repeat;" onclick="openwin(this.id)" ></div>
+						<div class="ub-fh uabs t-wh uch PTitile"  style="padding:0em 1em 0em"></div>
+					</div>
+					<div class="ub-fh">
+						<div  style="width:100%; height:35%" ><img width="100%" height="100%" id="indexP4" style=" background-size:cover; background-repeat:no-repeat;" onclick="openwin(this.id)" ></div>
+						<div class="ub-fh uabs t-wh uch PTitile"  style="padding:0em 1em 0em"></div>
+					</div>
+                </div>
+	        </div>
+				 <!--学生导航条开始-->
+			   	<div id="Student" style="display:none;">
+				    <div class="ub c-wh c-m7 tab t-gra" style="height:1.7em" >	
+					    <input class="uhide" type="radio" name="StudentWitch" checked="true" id="campusServices">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch(1)" ><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">校园服务</span></div></div>
+					     <input class="uhide" type="radio" name="StudentWitch" id="scholarship">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch(2)" ><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">奖学金</span></div></div>
+						<input class="uhide" type="radio" name="StudentWitch" id="employmentServices">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch(3)" ><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">就业服务</span></div></div>
+					</div>
+				</div>
+             	<!--学生导航条开始-->
+				<!--教职工导航条开始-->
+			   	<div id="Faculty" style="display:none;">
+				     <div class="ub c-wh c-m7 tab t-gra" style="height:1.7em" >	
+					    <input class="uhide" type="radio" name="FacultySwitch" checked="true" id="mediaFocus">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('1')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">媒体聚焦</span></div></div>
+					     <input class="uhide" type="radio" name="FacultySwitch" id="researchTeam">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('2')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">科研团队</span></div></div>
+						<input class="uhide" type="radio" name="FacultySwitch" id="vacancies">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('3')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">职位空缺</span></div></div>
+					</div>
+				</div>
+             	<!--教职工导航条开始-->
+				 <!--商业伙伴导航条开始-->
+			   	<div id="BusinessPartners" style="display:none;">
+				    <div class="ub c-wh c-m7 tab t-gra" style="height:1.7em" >		
+					    <input class="uhide" type="radio" name="BusinessPartnersSwitch" checked="true" id="schooEnterpriseCooperation">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('1')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">校企合作</span></div></div>
+					     <input class="uhide" type="radio" name="BusinessPartnersSwitch" id="scientificResearch">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('2')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">科研成果</span></div></div>
+					</div>
+				</div>
+             	<!--商业伙伴导航条结束-->
+				<!--学院介绍导航条开始-->
+			   	<div id="CollegeIntroduced" style="display:none;">
+				    <div class="ub c-wh c-m7 tab t-gra" style="height:1.7em" >		
+					    <input class="uhide" type="radio" name="CollegeIntroducedSwitch" checked="true" id="professionalPresentation">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('1')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">集团快讯</span></div></div>
+					    <input class="uhide" type="radio" name="CollegeIntroducedSwitch" id="groupNews">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('2')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">专业介绍</span></div></div>
+						<input class="uhide" type="radio" name="CollegeIntroducedSwitch" id="campusEnvironment">
+						<div ontouchstart="zy_touch('',zy_for)" class="ub-f1 ub ub-ver tab-act2" onclick="pageSwitch('3')"><div class="uinn ulev-2 tx-c"><span style="font-size:1.4em">校园环境</span></div></div>
+					</div>
+				</div>
+             	<!--学院介绍航条结束-->		
+			<!--content开始-->
+            <div id="content" class="ub-f1 tx-l t-bla ub-img6 res10">
+                
+            </div>
+            <!--content结束--><!--footer开始-->
+            <div id="footer" class="uf c-m2 c-bla t-wh" >
+				 <!--iPhone导航条开始-->
+				<div class="ub c-bla c-m12 tab t-wh">	
+				 <input class="uhide" type="radio" name="tabSwitch" checked="true">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="navigationSwitching('pages/GeneralNews.html','GeneralNews')" class="ub-f1 ub ub-ver tab-act"><div class="ub-f1 ub-img5 tp-info"></div><div class="uinn ulev-2 tx-c">综合新闻</div></div>
+				    <input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="navigationSwitching('pages/Student.html','Student')" class="ub-f1 ub ub-ver tab-act"><div class="ub-f1 ub-img5 tp-home"></div><div class="uinn ulev-2 tx-c">学生</div></div>
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="navigationSwitching('pages/Faculty.html','Faculty')" class="ub-f1 ub ub-ver tab-act"><div class="ub-f1 ub-img5 tp-set"></div><div class="uinn ulev-2 tx-c">教职工</div></div>
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="navigationSwitching('pages/BusinessPartners.html','BusinessPartners')" class="ub-f1 ub ub-ver tab-act"><div class="ub-f1 ub-img5 tp-shop"></div><div class="uinn ulev-2 tx-c">商业伙伴</div></div>
+					<input class="uhide" type="radio" name="tabSwitch">
+					<div ontouchstart="zy_touch('',zy_for)" onclick="navigationSwitching('pages/CollegeIntroduced.html','CollegeIntroduced')" class="ub-f1 ub ub-ver tab-act"><div class="ub-f1 ub-img5 tp-talk"></div><div class="uinn ulev-2 tx-c">学院介绍</div></div>
+				</div>
+				<!--iPhone导航条结束-->
+            </div>
+            <!--footer结束-->
+        </div>
+    </body>
+	<script>
+
+</script>
+    <script>
+    	if (!window.chrome)//判断是否在IDE中,zy_fix只在ios，android中有效
+　　zy_fix("header","footer",null,preonload);
+else
+　　window.onload = pageonload;
+function pageonload(){
+//初始化的一些工作
+}
+function openwin(inWndName,inAniID){
+　　uexWindow.open(inWndName,'0',inWndName+'.html',inAniID,'','','0');
+}
+		
+    	window.localStorage["url"]="http://172.16.8.223:8080/wjrong/";
+    	var navigationID2 ;
+		var pagePath2;
+		var pageNum2 ;
+    	zy_init();
+		 var jQuery = jQuery.noConflict();
+		 var w = jQuery("body").width();
+		 var pc1 = w-w*1;
+		 var pc2 = w-w*2;
+		 var pc3 = w-w*3;
+       	 window.uexOnload = function(type){
+            if (!type) {	
+				zy_initcache(function(){
+					getForumList();
+					//alert("hh");
+					//zy_imgcache("campusServicesImg","studentP1","http://www.neusoft.gd.cn/UploadFiles/xs/2011/11/201111071701544116.jpg",null,null,"studentP1.jpg","jpg");
+				});
+				window.localStorage["sPid"]=1;
+				document.getElementById("GeneralNews").style.display='';
+                zy_con("content", "pages/GeneralNews.html", 0, $$("header").offsetHeight+ $$("GeneralNews").offsetHeight+4);
+				//zy_con("content", "test.html", 0, $$("header").offsetHeight+ $$("GeneralNews").offsetHeight+4);
+				$$("slider").slide=new zySlide("slider","H",function(){	
+				},false,function(e)
+				{ 
+					
+				});
+            }
+			window.onorientationchange=window.onresize=function()
+			{
+				navigationSwitching(pagePath2,navigationID2)			
+			}
+			
+        }
+		//document.getElementById("h1test").innerHTML="南海东软信息学院";
+	function contentSwitching(pagePath)//content的切换
+	{
+		zy_con("content", pagePath, 0, $$("header").offsetHeight+$$(navigationID2).offsetHeight+4);
+		
+	}
+	function inputChecked(inputId)
+	{
+		document.getElementById(inputId).checked='ture';
+	
+	}
+	function pageSwitch(pageNum){
+		window.localStorage["sliderType"]="click";
+		uexWindow.evaluatePopoverScript("root","content","page"+pageNum+"(),naContent("+pageNum+")");
+	}	
+	function navigationSwitching(pagePath,navigationID)
+		{
+			document.getElementById("Student").style.display='none';
+			document.getElementById("Faculty").style.display='none';
+			document.getElementById("BusinessPartners").style.display='none';
+			document.getElementById("CollegeIntroduced").style.display='none';
+			document.getElementById("GeneralNews").style.display='none';
+			document.getElementById(navigationID).style.display='';		
+			navigationID2 =navigationID;
+			pagePath2=pagePath;
+			zy_con("content", pagePath, 0, $$("header").offsetHeight+$$(navigationID).offsetHeight+4);
+			if(navigationID=="GeneralNews"){}
+			else if(navigationID=="Student")
+			{
+				var campusServices=document.getElementById("campusServices").checked.toString();
+				var scholarship=document.getElementById("scholarship").checked.toString();
+				var employmentServices=document.getElementById("employmentServices").checked.toString();
+				if(campusServices=="true"){
+					window.localStorage["xy"]=pc1;
+				}
+				else if (scholarship == "true")
+				{
+					window.localStorage["xy"]=pc2;
+					setTimeout("pageSwitch('2')", 200);
+				}			
+				else if (employmentServices == "true") 
+				{
+					window.localStorage["xy"]=pc3;
+					setTimeout("pageSwitch('3')", 200)
+				}				
+			}
+			else if( navigationID2=="Faculty")
+			{
+				var mediaFocus=document.getElementById("mediaFocus").checked.toString();
+				var researchTeam=document.getElementById("researchTeam").checked.toString();
+				var vacancies=document.getElementById("vacancies").checked.toString();
+				if(mediaFocus=="true"){
+					window.localStorage["xy"]=pc1;
+				}
+				else if(researchTeam=="true")
+				{
+					window.localStorage["xy"]=pc2;
+					setTimeout("pageSwitch('2')",200)
+				} 	
+				else if(vacancies=="true")
+				{
+					window.localStorage["xy"]=pc3;
+					setTimeout("pageSwitch('3')",200)
+				}	
+			}
+			else if( navigationID2=="BusinessPartners")
+			{
+				var schooEnterpriseCooperation=document.getElementById("schooEnterpriseCooperation").checked.toString();
+				var scientificResearch=document.getElementById("scientificResearch").checked.toString();
+				if(schooEnterpriseCooperation=="true"){
+					window.localStorage["xy"]=pc1;
+				}
+				else if(scientificResearch=="true")
+				{
+					window.localStorage["xy"]=pc2;
+					setTimeout("pageSwitch('2')",200)
+				}	 	
+			}
+			else if ( navigationID2=="CollegeIntroduced")
+			{
+				var professionalPresentation=document.getElementById("professionalPresentation").checked.toString();
+				var groupNews=document.getElementById("groupNews").checked.toString();
+				var campusEnvironment=document.getElementById("campusEnvironment").checked.toString();
+				if(professionalPresentation=="true"){
+					window.localStorage["xy"]=pc1;
+				}
+				else if(groupNews=="true")
+				{
+					window.localStorage["xy"]=pc2;
+					setTimeout("pageSwitch('2')",200)
+				}	 	
+				else if(campusEnvironment=="true"){
+					window.localStorage["xy"]=pc3;
+					setTimeout("pageSwitch('3')",200)
+				}
+			}
+		}
+		//----------------------------------------------
+			function openwin2(GNId){
+	window.localStorage["GNId"]=GNId;
+	uexWindow.evaluateScript("root", "0", "openwin('pages/wGN','2'),getContent()");
+}
+
+function xmlHttp(url,callback){
+	if(url == ''){
+		uexWindow.alert('参数错误','请求地址不能为空！','返回');
+	}else{
+		$.getJSON(url,callback);
+	}
+}
+function  getForumList(){
+	document.getElementById("slider").innerHTML="";
+	xmlHttp(window.localStorage["url"]+"wap_Article_listNoNull.action",showList);
+}
+var ii =1;
+function showList(items){
+		for(var i in items){
+		var item = items[i];
+		var Content = item.title;
+		if(window.localStorage["indexT"+ii]==""||window.localStorage["indexT"+ii]==null||window.localStorage["indexId"+ii]==null)
+		{
+			
+			window.localStorage["indexT"+ii]= item.title;
+			window.localStorage["indexId"+ii]= item.id;
+			
+			document.getElementById("slider").innerHTML+="<div class='ub-fh'>"
+						+"<div  style='width:100%; height:35%' ><img width='100%' height='100%' id='indexP"+ii+"' style=' background-size:cover; background-repeat:no-repeat;' onclick='openwin2("+item.id+")' ></div>"
+						+"<div class='ub-fh uabs t-wh uch PTitile'  style='padding:0em 1em 0em'>"+item.title+"</div>"
+					+"</div>"
+		}
+		else{
+		
+		document.getElementById("slider").innerHTML+="<div class='ub-fh'>"
+						+"<div  style='width:100%; height:35%' ><img width='100%' height='100%' id='indexP"+ii+"' style=' background-size:cover; background-repeat:no-repeat;' onclick='openwin2("+window.localStorage["indexId"+ii]+")' ></div>"
+						+"<div class='ub-fh uabs t-wh uch PTitile'  style='padding:0em 1em 0em' clss>"+window.localStorage["indexT"+ii]+"</div>"
+					+"</div>"
+					}
+		zy_imgcache("indexP"+ii,"indexP"+ii,window.localStorage["url"]+item.tpicture,null,null,"index"+ii+".jpg","jpg");	
+	ii= ii+1;
+	}
+}
+		function refresh()
+		{
+			lstor.clear();
+			//var path = "wgt://data/icache";
+			//uexFileMgr.deleteFileByPath(path);
+			//zy_clearcache();	
+			//uexWindow.evaluatePopoverScript("root","content","refresh()");
+			window.localStorage["url"]="http://172.16.8.223:8080/wjrong/";
+			//zy_con("content", "pages/GeneralNews.html", 0, $$("header").offsetHeight+ $$("GeneralNews").offsetHeight+4);
+			//uexWindow.alert("刷新成功");
+		}
+		wap_Picture_list.action
+		
+		
+    </script>
+</html>

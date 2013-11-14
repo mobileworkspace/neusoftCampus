@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+   	    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" href="../css/ui-base.css">
+        <link rel="stylesheet" href="../css/ui-box.css">
+        <link rel="stylesheet" href="../css/ui-color.css">
+		<link rel="stylesheet" href="../css/ui-res.css">
+		<link rel="stylesheet" href="../css/ui-input.css">
+		<link rel="stylesheet" href="../css/ui-anim.css">
+        <script src="../js/zy_control.js">
+        </script>
+        <script src="../js/zy_click.js">
+        </script>
+		<script src="../js/zy_slide.js">
+        </script>
+		<script src="../js/zy_json.js">
+		</script>
+        <script src="../js/myJs/jq.js">
+        </script>
+		<script src="../js/zy_anim.js">
+		</script>
+		<script src="../js/zy_event.js">
+    	</script>	
+		<script>
+    	</script>	
+		</script>	
+		<script src="../js/zy_icache.js"></script>
+		<style>
+		
+			#campusEnvironmentContent div  {
+				float:left; 
+				margin:0.5em;		
+				width:5em;
+				height:5em;
+				box-shadow:2px 2px 2px gray;
+				
+			
+			}
+				.contentDiv{
+	margin:0.5em 0.2em ;
+	 border-bottom:gray solid 1px;
+   
+
+}
+.contentDiv h5{
+	 width:100%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+	font-size:1em;
+     	
+} 
+.contentDiv .content{
+		 width:100%;
+		 height:20%;
+    white-space:normal;
+    text-overflow:ellipsis;
+	-webkit-text-overflow:ellipsis;
+    overflow: hidden;
+	font-size:0.8em;
+	color:gray;
+	}
+.contentDiv time,h5{
+	margin:0.3em;
+	}
+#times
+{
+	font-size:1em; 
+	color:gray;
+	padding:0.1em ;
+	text-align:right;
+}
+
+		</style>
+    </head>
+    <body class="um-vp" ontouchstart>
+            <div  class="ub-f1 tx-l t-bla ub-img6 res10  up ub ub-ver uof-x"   >
+                <div id="slider" class="ub-con ub" >
+                	<div class="ub-fh" id="professionalPresentation">
+						<!--<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="professionalPresentationImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>-->
+						<div id="professionalPresentationContent" class="content"></div>
+					</div>
+					<div class="ub-fh" id="groupNews" >
+						<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="groupNewsImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>	
+						<div id="groupNewsContent" class="content"></div>
+					</div>
+					<div class="ub-fh" id="campusEnvironment" >
+						<!--<div  style="width:100%; height:40%" ><img width="100%" height="100%" id="campusEnvironmentImg" style=" background-size:cover; background-repeat:no-repeat; margin:10px 0px; ba" ></div>-->
+						<div id="campusEnvironmentContent" class="content">
+								<div><img width="100%" height="100%" id="mediaFocusImg" style=" background-size:cover; background-repeat:no-repeat; " ></div>
+								<div></div>
+
+								<div style="text-align:center; font-family:font-family:'Microsoft Sans Serif'; color:grey"><br>添加<br>更多图片</div>
+						</div>
+					</div>
+                </div>
+        </div>
+    </body>
+    <script>
+    	zy_init();
+		 var jQuery = jQuery.noConflict();
+         var h="" ;
+		 var s="";
+		 var w = jQuery("body").width();
+		 var num = new Array("professionalPresentation","groupNews","campusEnvironment");
+		 var pc1 = w-w*1;
+		 var pc2 = w-w*2;
+		 var pc3 = w-w*3;
+		 var p1 = (w-w*1).toString();
+		 var p2 = (w-w*2).toString();
+		 var p3 = (w-w*3).toString(); 
+		 var pp2 = p2.substr(0, 2);	
+		 var pp3 = p3.substr(0, 2);	 
+		 jQuery(".content").css("padding","10px");
+    	 window.uexOnload = function(type){
+			if(!type)
+			{
+				zy_initcache(function(){
+					window.localStorage["PSize"]=9;
+						//getForumList(11);
+						getForumList(12);
+						//getForumList(13);
+						  getForumList1();
+						  getForumListJ1();
+					//zy_imgcache("professionalPresentationImg","CollegeIntroducedP1","http://www.neusoft.gd.cn/UploadFiles/xs/2011/11/201111071701544116.jpg",null,null,"CollegeIntroducedP1.jpg","jpg");
+					});
+				$$("slider").slide=new zySlide("slider","H",function(){
+						window.localStorage["sliderType"]="slider";
+				},false,function(e)
+				{ 
+					h=jQuery("#slider").css("-webkit-transform")	
+						
+				});		
+				var wz = jQuery("#slider").css("-webkit-transform");
+				$$("slider").gesture=new zyEvent("slider",
+								function(me,dx,dy){//移动过程中事件									
+								},
+								function(me,dx,dy,t){//手指松开后事件							
+									if(t=="left") {
+										//jQuery("#slider").css("-webkit-transform","translate3d(-320px, 0px, 0px)");
+									}
+										//zy_anim_push(me,"a-ml");
+								},false,function(e)//对象动画结束事件
+								{									
+									s=jQuery("#slider").css("-webkit-transform");
+									if(s!=h)
+									{
+										return;
+									}									
+									var a =s.substr(19, 2);									
+									if(a=="0,")
+									{
+										uexWindow.evaluateScript("root", "0", "inputChecked('"+num[0]+"')");
+									}
+									else if(a==pp2)
+									{
+										uexWindow.evaluateScript("root", "0", "inputChecked('"+num[1]+"')");
+									}
+									else if(a==pp3)
+									{
+										uexWindow.evaluateScript("root", "0", "inputChecked('"+num[2]+"')");
+									}
+									else{
+										alert("错误");
+									}			
+								});
+								var aa =wz.substr(19, 2);	
+			}	
+        }
+		function page1(){
+			jQuery("#slider").css("webkit-transition-duration","500ms");
+			jQuery("#slider").css("-webkit-transform","translate3d("+pc1+"px, 0px, 0px)")
+			jQuery("#slider").css("-webkit-transform","translate("+pc1+"px, 0)")
+			 
+			window.localStorage["xy"]=pc1;
+		}
+		function page2(){
+			jQuery("#slider").css("webkit-transition-duration","500ms");
+			jQuery("#slider").css("-webkit-transform","translate3d("+pc2+"px, 0px, 0px)")
+					jQuery("#slider").css("-webkit-transform","translate("+pc2+"px, 0)")
+			window.localStorage["xy"]=pc2;
+		}
+		function page3(){
+			jQuery("#slider").css("webkit-transition-duration","500ms");
+			jQuery("#slider").css("-webkit-transform","translate3d("+pc3+"px, 0px, 0px)")
+					jQuery("#slider").css("-webkit-transform","translate("+pc3+"px, 0)")
+			window.localStorage["xy"]=pc3;
+		}
+			/* jQuery(document).ready(function(){
+				jQuery("table").css("width","95%");
+ 		  	});*/
+   /*function getContent(){
+	var url="http://pc-201310171751:8080/wjrong/wap_Article_listcid.action?categoryid=3&pageOffset=0&pageSize=1";
+	//var url="http://m.weather.com.cn/data/101010100.html";
+　　$.getJSON(url,function(data){	
+alert(data.id);
+alert(data.tpicture);
+	//zy_imgcache("professionalPresentationImg","CollegeIntroducedP1","http://pc-201310171751:8080/wjrong/"+data.tpicture,null,null,"CollegeIntroducedP1.jpg","jpg");
+	zy_imgcache("professionalPresentationImg","CollegeIntroducedP1","http://pc-201310171751:8080/wjrong/"+data.tpicture,null,null,"CollegeIntroducedP1.jpg","jpg");
+	window.localStorage["professionalPresentationTitle"]=	data.title;
+	window.localStorage["professionalPresentationContent"]=data.content;
+　　},
+　　"json",//数据类型为JSON
+　　null,//未定义错误处理函数
+　　"GET",//使用GET方式获取
+　　"",//无参数
+　　true); //使用LocalStorage缓存数据
+	//$$("content").innerHTML += "<div>"+window.localStorage["data"]+"</div>" ;
+	 document.getElementById("professionalPresentationContent").innerHTML;
+}*/
+
+function xmlHttp(url,callback){
+	if(url == ''){
+		uexWindow.alert('参数错误','请求地址不能为空！','返回');
+	}else{
+		$.getJSON(url,callback);
+	}
+}
+var ii;
+function  getForumList(i){
+	ii=i-3;
+	xmlHttp(window.localStorage["url"]+"wap_Article_listcid.action?categoryid="+i+"&pageOffset=0&pageSize=1",showList);
+	
+}
+var iii = 0 ; 
+function showList(items){
+		for(var i in items){
+		var item = items[i];
+		var trHeader = item.id+item.title;
+		var minCount = item.content;
+		var minCount2=minCount.substring(1,70); 
+		var numImg = new Array("professionalPresentationImg","groupNewsImg","campusEnvironmentImg");
+ 		var numContent=new Array("professionalPresentationContent","groupNewsContent","campusEnvironmentContent");
+		if (window.localStorage[numContent[iii]] == "" || window.localStorage[numContent[iii]] == null || window.localStorage[numContent[iii]] == "undefine") {
+			window.localStorage[numContent[iii]] = item.content;
+			document.getElementById(numContent[iii]).innerHTML = item.content;
+		}
+		else {
+			
+			document.getElementById(numContent[iii]).innerHTML = window.localStorage[numContent[iii]];
+		}
+		zy_imgcache(numImg[iii], "CollegeIntroducedP" + iii, window.localStorage["url"] + item.tpicture, null, null, "CollegeIntroducedP" + iii + ".jpg", "jpg");
+		iii = iii+1;
+	}
+}
+	function refresh()
+{
+	$.clearLS(window.localStorage["url"]+"wap_Article_listcid.action?categoryid="+i+"&pageOffset=0&pageSize=1");
+	loadWeather();
+}
+//-------------------------
+function  getForumList1(){
+	document.getElementById("campusEnvironmentContent").innerHTML="";
+	xmlHttp(window.localStorage["url"]+"wap_Picture_list.action?pageOffset=0&pageSize=9",showList1);	
+}
+var a=1 ;
+function showList1(items){
+		for(var i in items){
+		var item = items[i];
+		var trHeader = item.id+item.title;
+		var pid = item.id;
+		var purl = item.tpicture;
+		if (window.localStorage["CECp"+pid] == null) {
+			window.localStorage["CECp"+pid]=item.id;
+			document.getElementById("campusEnvironmentContent").innerHTML += "<div><img width='100%' height='100%' id='CECp" + pid + "' style='background-size:cover; background-repeat:no-repeat; ' ></div>";
+		}
+		else {
+		
+			document.getElementById("campusEnvironmentContent").innerHTML += "<div><img width='100%' height='100%' id='CECp" + window.localStorage["CECp"+pid] + "' style='background-size:cover; background-repeat:no-repeat; ' ></div>";
+		}
+		//zy_imgcache("CECp"+pid,"CECp"+pid , window.localStorage["url"] + item.tpicture, null, null, "CECp"+pid + ".jpg", "jpg");
+		zy_imgcache( "CECp"+pid,"CECp"+pid , window.localStorage["url"] + item.tpicture, null, null, "CECp"+pid+".jpg", "jpg");
+		a = a+1;
+	}
+	if(item.id>1){
+		document.getElementById("campusEnvironmentContent").innerHTML += "<div class='hh'><div id='more' style='text-align:center; font-family:font-family:'Microsoft Sans Serif'; color:grey' onclick='getForumList2()'><br>添加<br>更多图片</div></div>";
+	}
+}
+
+function  getForumList2(){//添加更多的按钮
+	//document.getElementById("hh").style.display="none";
+	 jQuery(".hh").css("display","none");
+	 alert("1");
+	xmlHttp(window.localStorage["url"]+"wap_Picture_list.action?pageOffset="+window.localStorage["PSize"]+"&pageSize=5",showList1);
+	window.localStorage["PSize"]=parseInt(window.localStorage["PSize"])+5;	
+}
+//-----------------------------------------
+
+
+"<div class='contentDiv'  onclick='openwin(this.id)' id="+item.id+" >"+
+														"<h5>"+item.title+"</h5>"+
+														"<div class='content'>"+ item.intro.substr(1,70)+"</div>"+""
+	
+function  getForumList1(){//添加更多的按钮
+	 jQuery(".hh").css("display","none");	
+xmlHttp(window.localStorage["url"]+"wap_Picture_list.action?pageOffset=0&pageSize=9",showList1);	
+}	
+
+function  getForumListJ1(){
+	document.getElementById("campusEnvironmentContent").innerHTML="";
+	xmlHttp(window.localStorage["url"]+"wap_Article_listcid.action?categoryid=11&pageOffset=0&pageSize=10",showListJ1);
+}
+
+function showListJ1(items){
+		for(var i in items){
+		var item = items[i];
+		var trHeader = item.id+item.title;
+		var pid = item.id;
+		var purl = item.tpicture;
+		if (window.localStorage["CECj"+pid] == null) {
+			document.getElementById("professionalPresentationContent").innerHTML+="<div class='contentDiv'  onclick='openwin(this.id)' id="+item.id+" >"+
+														"<h5>"+item.title+"</h5>"+
+														"<div class='content'>"+ item.intro.substr(1,70)+"</div>"+
+													"<div id='times'>"+item.createDate+"</div> "
+													+"<div>"
+		}
+		else {
+		
+		
+			}
+			zy_imgcache( "professionalPresentationImg","professionalPresentationImg" , window.localStorage["url"] + item.tpicture, null, null, "CprofessionalPresentationImg.jpg", "jpg");
+		}
+	
+}			
+function openwin(GNId){
+	window.localStorage["GNId"]=GNId;
+	uexWindow.evaluateScript("root", "0", "openwin('pages/wGN','2'),getContent()");
+}							
+</script>
+    </script>
+
+</html>

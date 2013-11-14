@@ -1,0 +1,42 @@
+		
+#campusEnvironmentContent div  {
+	float:left; 
+	margin:0.5em;		
+	width:5em;
+	height:5em;
+	box-shadow:2px 2px 2px gray;		
+		}
+.contentDiv{
+	margin:0.5em 0.2em ;
+	border-bottom:gray solid 1px;
+   
+
+}
+.contentDiv h5{
+	width:100%;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+    overflow: hidden;
+	font-size:1em;
+     	
+} 
+.contentDiv .content{
+	width:100%;
+	height:20%;
+    white-space:normal;
+    text-overflow:ellipsis;
+	-webkit-text-overflow:ellipsis;
+    overflow: hidden;
+	font-size:0.8em;
+	color:gray;
+	}
+.contentDiv time,h5{
+	margin:0.3em;
+	}
+#times
+{
+	font-size:1em; 
+	color:gray;
+	padding:0.1em ;
+	text-align:right;
+}

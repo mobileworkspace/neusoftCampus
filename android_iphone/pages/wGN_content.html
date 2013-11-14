@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../css/ui-base.css">
+    <link rel="stylesheet" href="../css/ui-box.css">
+    <link rel="stylesheet" href="../css/ui-color.css">
+    <script src="../js/zy_control.js">
+    </script>
+    <script src="../js/zy_click.js">
+    </script>
+    <script>
+	</script>
+	<script src="../js/zy_json.js">
+	</script>
+  </head>
+  
+<body class="um-vp" ontouchstart>
+	<div id="content">
+<P style="text-align:center;margin:10px"></P>
+		
+	</div>
+</body>
+<script>
+	  	
+zy_init();
+
+
+window.uexOnload=function(type)
+{
+	if(!type){
+		uexWindow.setBounce("1");
+		uexWindow.showBounceView("0","#FFF","0");
+		uexWindow.showBounceView("1","#FFF","0");
+		getContent();
+		var c  =uexDevice.getInfo('13');
+		alert(c);
+	
+		
+	}
+}
+var GNId = window.localStorage["GNId"];
+function getContent(){
+	var url=window.localStorage["url"]+"wap_Article_show.action?id="+GNId+"";
+　　$.getJSON(url,function(data){
+	if(window.localStorage[GNId]==""||window.localStorage[GNId]==null)
+	{
+		$$("content").innerHTML += "<p style='text-align:center;margin:10px'>"+data.title+"</p><div>"+data.content+"</div>" ;
+		window.localStorage[GNId]=data.content;
+	}
+	else{
+		$$("content").innerHTML += "<p style='text-align:center;margin:10px'>"+data.title+"</p><div>"+window.localStorage[GNId]+"</div>" ;
+	}
+	
+　　},
+　　"json",//数据类型为JSON
+　　null,//未定义错误处理函数
+　　"GET",//使用GET方式获取
+　　"",//无参数
+　　true); //使用LocalStorage缓存数据
+
+}
+
+</script>
+</html>

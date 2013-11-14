@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+  <head>
+    <title>
+    </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="../css/ui-res.css">
+    <link rel="stylesheet" href="../css/ui-btn.css">
+    <link rel="stylesheet" href="../css/ui-base.css">
+    <link rel="stylesheet" href="../css/ui-box.css">
+    <link rel="stylesheet" href="../css/ui-color.css">
+	<link rel="stylesheet" href="../css/myCss/GeneralNews.css">
+    <script src="../js/zy_control.js">
+    </script>
+    <script src="../js/zy_click.js">
+    </script>
+    <script>
+	</script>
+	<script src="../js/myJs/jq.js"></script>
+	<script src="../js/zy_json.js">
+		</script>
+  </head>
+<body class="um-vp" ontouchstart  >
+<div id ="count">
+	<div class='contentDiv'  ontouchstart="" onclick="openwin(this.id)" id="1">
+		<h5>中国计算机报：东软DNA在广东孵化两万IT人才</h5>
+	<div class='content'>11月12日，《中国计算机报》发表我院十周年评论文章——《东软DNA在广东孵化两万IT人才》。</div>
+	<div id="times">time</div> 
+	</div>
+</div>
+</body>
+
+<script>
+zy_init();
+window.uexOnload=function(type)
+{
+	if(!type){
+	getForumList();
+	}
+}
+function openwin(GNId){
+	window.localStorage["GNId"]=GNId;
+	uexWindow.evaluateScript("root", "0", "openwin('pages/wGN','2'),getContent()");
+}
+
+function xmlHttp(url,callback){
+	if(url == ''){
+		uexWindow.alert('参数错误','请求地址不能为空！','返回');
+	}else{
+		$.getJSON(url,callback);
+	}
+}
+function  getForumList(){
+	document.getElementById("count").innerHTML="";
+	xmlHttp(window.localStorage["url"]+"wap_Article_listcid.action?categoryid=1&pageOffset=0&pageSize=10",showList);
+}
+function showList(items){
+		for(var i in items){
+		var item = items[i];
+		var trHeader = item.id+item.title;
+		var minCount = item.content;
+		var minCount2=minCount.substring(1,70); 
+		document.getElementById("count").innerHTML+="<div class='contentDiv'  onclick='openwin(this.id)' id="+item.id+" >"+
+														"<h5>"+item.title+"</h5>"+
+														"<div class='content'>"+ item.intro.substr(1,70)+"</div>"+
+													"<div id='times'>"+item.createDate+"</div> "
+	}
+}
+function refresh()
+{
+	$.clearLS(window.localStorage["url"]+"wap_Article_listcid.action?categoryid=1&pageOffset=0&pageSize=10");
+	loadWeather();
+}
+</script>
+</html>
